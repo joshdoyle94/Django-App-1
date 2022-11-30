@@ -79,7 +79,7 @@ WSGI_APPLICATION = 'homework_crud.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'homework-crud',
+        'NAME': 'homework_crud_2',
     }
 }
 

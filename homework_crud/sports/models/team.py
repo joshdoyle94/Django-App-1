@@ -10,7 +10,7 @@ class Team(models.Model):
     updated_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return f"The {self.city} {self.name} play {self.sport}"
+        return f"{self.city} {self.name}"
 
     def as_dict(self):
         return {

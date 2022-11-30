@@ -2,9 +2,10 @@ from django.shortcuts import render, get_object_or_404
 from rest_framework import status
 from rest_framework.views import APIView
 from rest_framework.response import Response
-from sports.serializers import TeamSerializer
 
-from .models import Team
+
+from ..models.team import Team
+from ..serializers import TeamSerializer
 
 # def index(request):
 #     teams = Team.objects.all()
@@ -13,6 +14,7 @@ from .models import Team
 
 class TeamsView(APIView):
     # View class for teams/ for viewing all and creating
+    serializer_class = TeamSerializer
     def get(self, request):
         teams = Team.objects.all()
         serializer = TeamSerializer(teams, many=True)
@@ -27,6 +29,7 @@ class TeamsView(APIView):
 
 class TeamsDetailView(APIView):
     #  View class for teams/:pk
+    serializer_class = TeamSerializer
     def get(self, request, pk):
         team = get_object_or_404(Team, pk=pk)
         serializer = TeamSerializer(team)
